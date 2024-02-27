@@ -1,3 +1,9 @@
 <resources>
     <string name="app_name">Online Store</string>
+    <string name="main_fragment">Главная</string>
+    <string name="catalog_fragment">Каталог</string>
+    <string name="basket_fragment">Корзина</string>
+    <string name="discount_fragment">Акции</string>
+    <string name="account_fragment">Профиль</string>
+    <string name="login">Вход</string>
 </resources>
