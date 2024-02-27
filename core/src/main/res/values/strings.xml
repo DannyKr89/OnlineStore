@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="login_fragment">Вход</string>
+    <string name="main_fragment">Главная</string>
+    <string name="catalog_fragment">Каталог</string>
+    <string name="basket_fragment">Корзина</string>
+    <string name="discount_fragment">Акции</string>
+    <string name="account_fragment">Профиль</string>
+
+    <string name="deeplink_catalog_fragment">android-app://com.dk.catalog.CatalogFragment</string>
+
+</resources>
