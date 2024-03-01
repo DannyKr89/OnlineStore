@@ -1,11 +1,11 @@
 package com.dk.login.data
 
 import android.content.SharedPreferences
+import com.dk.core.app.utils.PROFILE_FIRST_NAME
+import com.dk.core.app.utils.PROFILE_PHONE_NUMBER
+import com.dk.core.app.utils.PROFILE_SECOND_NAME
 import com.dk.core.login.domain.model.Profile
 import com.dk.core.login.domain.repository.LoginRepository
-import com.dk.login.utils.PROFILE_FIRST_NAME
-import com.dk.login.utils.PROFILE_PHONE_NUMBER
-import com.dk.login.utils.PROFILE_SECOND_NAME
 import kotlinx.coroutines.flow.flow
 
 class LoginRepositoryImpl(private val sharedPreferences: SharedPreferences) : LoginRepository {

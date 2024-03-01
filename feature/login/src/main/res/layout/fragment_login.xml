@@ -86,7 +86,7 @@
         android:gravity="center"
         android:text="@string/license"
         android:textAppearance="@style/link_text"
-        android:textColor="@color/text_gray"
+        android:textColor="@color/text_grey"
         android:textSize="11sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

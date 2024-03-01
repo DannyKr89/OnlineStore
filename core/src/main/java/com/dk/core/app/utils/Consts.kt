@@ -1,4 +1,4 @@
-package com.dk.login.utils
+package com.dk.core.app.utils
 
 const val PROFILE_FIRST_NAME = "PROFILE_FIRST_NAME"
 const val PROFILE_SECOND_NAME = "PROFILE_SECOND_NAME"

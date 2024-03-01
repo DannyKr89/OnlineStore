@@ -39,7 +39,7 @@ fun InfoDTO.toInfo(): Info {
 }
 
 fun PriceDTO.toPrice(): Price {
-    return Price (
+    return Price(
         discount = discount,
         price = price,
         priceWithDiscount = priceWithDiscount,

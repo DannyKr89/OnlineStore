@@ -1,12 +1,11 @@
-package com.dk.catalog.ui.adapters
+package com.dk.core.catalog.ui
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
-import coil.load
-import com.dk.catalog.databinding.ItemProductImageBinding
+import com.dk.core.databinding.ItemProductImageBinding
 
 class ImageAdapter :
     ListAdapter<Int, ImageAdapter.ImageViewHolder>(COMPARATOR) {
@@ -14,9 +13,7 @@ class ImageAdapter :
         RecyclerView.ViewHolder(binding.root) {
         fun bind(id: Int) {
             with(binding) {
-                root.load(id) {
-                    crossfade(true)
-                }
+                root.setImageResource(id)
             }
         }
     }

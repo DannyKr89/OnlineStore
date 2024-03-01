@@ -1,4 +1,4 @@
-package com.dk.catalog.ui.custom
+package com.dk.core.catalog.ui.custom
 
 import android.content.Context
 import android.graphics.Canvas

@@ -41,14 +41,14 @@
             app:layout_constraintTop_toTopOf="parent"
             tools:ignore="ContentDescription" />
 
-        <com.dk.catalog.ui.custom.CrossedView
+        <com.dk.core.catalog.ui.custom.CrossedView
             android:id="@+id/tv_old_price"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="6dp"
             android:paddingHorizontal="1dp"
             android:textAppearance="@style/element_text"
-            android:textColor="@color/text_gray"
+            android:textColor="@color/text_grey"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/ll_page" />
 
@@ -123,7 +123,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
             android:textAppearance="@style/element_text"
-            android:textColor="@color/text_gray"
+            android:textColor="@color/text_grey"
             app:layout_constraintBottom_toBottomOf="@id/iv_rating"
             app:layout_constraintStart_toEndOf="@id/tv_product_rating"
             app:layout_constraintTop_toTopOf="@id/iv_rating" />

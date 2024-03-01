@@ -46,6 +46,7 @@ dependencies {
     implementation(project(":feature:discount"))
     implementation(project(":feature:basket"))
     implementation(project(":feature:profile"))
+    implementation(project(":feature:detail"))
     implementation(project(":core"))
     implementation(project(":api"))
 

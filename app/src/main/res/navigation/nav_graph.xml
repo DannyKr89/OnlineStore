@@ -2,7 +2,7 @@
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/main_fragment">
+    app:startDestination="@id/login_fragment">
 
     <fragment
         android:id="@+id/login_fragment"
@@ -12,12 +12,17 @@
         android:id="@+id/catalog_fragment"
         android:name="com.dk.catalog.ui.CatalogFragment"
         android:label="@string/catalog_fragment">
-        <deepLink app:uri="@string/deeplink_catalog_fragment" />
+        <action
+            android:id="@+id/action_catalog_fragment_to_product_detail_fragment"
+            app:destination="@id/product_detail_fragment" />
     </fragment>
     <fragment
         android:id="@+id/main_fragment"
         android:name="com.dk.home.HomeFragment"
-        android:label="@string/main_fragment" />
+        android:label="@string/main_fragment">
+
+        <deepLink app:uri="android-app://com.dk.home.HomeFragment" />
+    </fragment>
     <fragment
         android:id="@+id/discount_fragment"
         android:name="com.dk.discount.DiscountFragment"
@@ -30,4 +35,8 @@
         android:id="@+id/basket_fragment"
         android:name="com.dk.basket.BasketFragment"
         android:label="@string/basket_fragment" />
+    <fragment
+        android:id="@+id/product_detail_fragment"
+        android:name="com.dk.detail.ui.ProductDetailFragment"
+        android:label="" />
 </navigation>

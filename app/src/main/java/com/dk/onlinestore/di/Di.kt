@@ -4,11 +4,12 @@ import android.content.Context
 import android.content.SharedPreferences
 import com.dk.api.retrofit.ProductApi
 import com.dk.api.retrofit.data.CatalogRepositoryImpl
-import com.dk.catalog.ui.adapters.CatalogAdapter
 import com.dk.catalog.ui.CatalogViewModel
+import com.dk.catalog.ui.adapters.CatalogAdapter
 import com.dk.core.app.MainViewModel
 import com.dk.core.catalog.domain.CatalogRepository
 import com.dk.core.catalog.domain.GetProductsUseCase
+import com.dk.core.catalog.ui.ImageAdapter
 import com.dk.core.login.domain.repository.LoginRepository
 import com.dk.core.login.domain.usecase.LoginUseCase
 import com.dk.core.login.domain.usecase.SaveProfileUseCase
@@ -40,6 +41,10 @@ val catalogModule = module {
     single<CatalogRepository> { CatalogRepositoryImpl(api = get()) }
     factory<GetProductsUseCase> { GetProductsUseCase(catalogRepository = get()) }
     viewModel<CatalogViewModel> { CatalogViewModel(getProductsUseCase = get()) }
+}
+
+val productModule = module {
+    factory<ImageAdapter> { ImageAdapter() }
 }
 
 val retrofitModule = module {

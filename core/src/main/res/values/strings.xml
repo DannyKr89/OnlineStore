@@ -7,6 +7,10 @@
     <string name="discount_fragment">Акции</string>
     <string name="account_fragment">Профиль</string>
 
-    <string name="deeplink_catalog_fragment">android-app://com.dk.catalog.ui.CatalogFragment</string>
+    <string name="share">Поделиться</string>
+    <string name="description">Описание</string>
+    <string name="hide_text">Скрыть</string>
+    <string name="show_text">Подробнее</string>
+
 
 </resources>

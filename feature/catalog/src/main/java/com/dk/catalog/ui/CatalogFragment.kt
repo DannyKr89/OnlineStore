@@ -14,11 +14,13 @@ import com.dk.catalog.databinding.FragmentCatalogBinding
 import com.dk.catalog.ui.adapters.CatalogAdapter
 import com.dk.catalog.ui.common.sort.SortList
 import com.dk.catalog.ui.common.sort.SortingType
+import com.dk.core.app.MainViewModel
 import com.dk.core.catalog.domain.model.Product
 import com.google.android.material.chip.Chip
 import com.google.android.material.chip.ChipGroup
 import com.google.android.material.chip.ChipGroup.OnCheckedStateChangeListener
 import org.koin.android.ext.android.get
+import org.koin.androidx.viewmodel.ext.android.activityViewModel
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class CatalogFragment : Fragment(), OnItemSelectedListener, OnCheckedStateChangeListener {
@@ -26,6 +28,7 @@ class CatalogFragment : Fragment(), OnItemSelectedListener, OnCheckedStateChange
     private var _binding: FragmentCatalogBinding? = null
     private val binding: FragmentCatalogBinding get() = _binding!!
     private val viewModel: CatalogViewModel by viewModel()
+    private val mainViewModel: MainViewModel by activityViewModel()
     private val adapter: CatalogAdapter = get()
     private var productList = listOf<Product>()
     private var sortList = SortList(SortingType.RATING_DESC)
@@ -40,6 +43,13 @@ class CatalogFragment : Fragment(), OnItemSelectedListener, OnCheckedStateChange
         super.onViewCreated(view, savedInstanceState)
         initViewModel()
         initViews()
+        setupAdapter()
+    }
+
+    private fun setupAdapter() {
+        adapter.productListener = {
+            mainViewModel.product(it)
+        }
     }
 
     private fun initViewModel() {
@@ -93,9 +103,6 @@ class CatalogFragment : Fragment(), OnItemSelectedListener, OnCheckedStateChange
     private fun sortList(sortingType: SortingType) {
         sortList = SortList(sortingType)
         adapter.submitList(sortList.getSorted(adapter.currentList))
-        binding.rvCatalog.postDelayed({
-            binding.rvCatalog.scrollToPosition(0)
-        }, 10)
     }
 
     override fun onCheckedChanged(group: ChipGroup, checkedIds: MutableList<Int>) {

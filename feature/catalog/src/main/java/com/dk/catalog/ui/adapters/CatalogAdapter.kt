@@ -9,8 +9,8 @@ import com.dk.core.catalog.domain.model.Product
 
 class CatalogAdapter : ListAdapter<Product, CatalogViewHolder>(COMPARATOR) {
 
-    private val productListener: ((Product) -> Unit)? = null
-    private val favoriteListener: ((Product) -> Unit)? = null
+    var productListener: ((Product) -> Unit)? = null
+    var favoriteListener: ((Product) -> Unit)? = null
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CatalogViewHolder {
         val binding = ItemProductBinding.inflate(LayoutInflater.from(parent.context), parent, false)
         return CatalogViewHolder(binding)

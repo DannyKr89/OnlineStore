@@ -1,10 +1,11 @@
 package com.dk.basket
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.Fragment
+
 class BasketFragment : Fragment() {
 
     override fun onCreateView(

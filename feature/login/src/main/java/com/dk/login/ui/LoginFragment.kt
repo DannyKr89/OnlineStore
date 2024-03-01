@@ -4,8 +4,12 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.net.toUri
 import androidx.core.widget.doOnTextChanged
 import androidx.fragment.app.Fragment
+import androidx.navigation.NavDeepLinkRequest
+import androidx.navigation.NavOptions
+import androidx.navigation.fragment.findNavController
 import com.dk.core.app.MainViewModel
 import com.dk.login.databinding.FragmentLoginBinding
 import com.dk.login.utils.PhoneValidator
@@ -56,7 +60,14 @@ class LoginFragment : Fragment() {
                 val secondName = etSecondName.text.toString()
                 val phoneNumber = etPhoneNumber.text.toString()
                 viewModel.saveProfile(firstName, secondName, phoneNumber)
-                mainViewModel.login()
+                val request = NavDeepLinkRequest.Builder
+                    .fromUri("android-app://com.dk.home.HomeFragment".toUri())
+                    .build()
+                findNavController().navigate(
+                    request,
+                    NavOptions.Builder().setLaunchSingleTop(true).build()
+                )
+
             }
         }
     }
