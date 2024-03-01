@@ -7,6 +7,6 @@
     <string name="discount_fragment">Акции</string>
     <string name="account_fragment">Профиль</string>
 
-    <string name="deeplink_catalog_fragment">android-app://com.dk.catalog.CatalogFragment</string>
+    <string name="deeplink_catalog_fragment">android-app://com.dk.catalog.ui.CatalogFragment</string>
 
 </resources>
