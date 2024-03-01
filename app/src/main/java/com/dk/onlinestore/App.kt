@@ -2,7 +2,9 @@ package com.dk.onlinestore
 
 import android.app.Application
 import com.dk.onlinestore.di.appModule
+import com.dk.onlinestore.di.catalogModule
 import com.dk.onlinestore.di.loginModule
+import com.dk.onlinestore.di.retrofitModule
 import org.koin.android.ext.koin.androidContext
 import org.koin.android.ext.koin.androidLogger
 import org.koin.core.context.startKoin
@@ -14,7 +16,7 @@ class App : Application() {
         startKoin {
             androidContext(this@App)
             androidLogger(Level.ERROR)
-            modules(appModule, loginModule)
+            modules(appModule, loginModule, catalogModule, retrofitModule)
         }
     }
 

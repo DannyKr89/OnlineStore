@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="MyChips" parent="Widget.Material3.Chip.Suggestion">
+        <item name="android:textColor">@color/selector_chips_text</item>
+        <item name="android:textAppearance">@style/Title_4</item>
+        <item name="closeIconEnabled">true</item>
+        <item name="closeIconTint">@color/white</item>
+        <item name="shapeAppearance">?attr/shapeAppearanceCornerLarge</item>
+        <item name="chipSurfaceColor">@color/selector_chips</item>
+        <item name="chipBackgroundColor">@color/selector_chips</item>
+        <item name="chipStrokeWidth">0dp</item>
+    </style>
+</resources>

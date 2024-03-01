@@ -47,7 +47,11 @@ dependencies {
     implementation(project(":feature:basket"))
     implementation(project(":feature:profile"))
     implementation(project(":core"))
+    implementation(project(":api"))
 
+    //Retrofit
+    implementation("com.squareup.retrofit2:retrofit:2.9.0")
+    implementation("com.squareup.retrofit2:converter-gson:2.9.0")
     //Koin
     implementation("io.insert-koin:koin-android:3.5.3")
 

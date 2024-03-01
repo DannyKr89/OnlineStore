@@ -26,19 +26,18 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        initViewModel()
         setupToolbar()
         setupNavigation()
-        initViewModel()
     }
 
     private fun initViewModel() {
         viewModel.login()
         viewModel.loginLiveData.observe(this) {
             if (it != null) {
-                val request = NavDeepLinkRequest.Builder.fromUri(
-                    resources.getString(com.dk.core.R.string.deeplink_catalog_fragment).toUri()
-                ).build()
-                navController.navigate(request)
+                navController.navigate(R.id.catalog_fragment)
+            } else {
+                navController.navigate(R.id.login_fragment)
             }
         }
     }
