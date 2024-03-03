@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">Online Store</string>
+    <string name="favorite_fragment">Избранное</string>
 </resources>

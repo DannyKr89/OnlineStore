@@ -6,6 +6,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.dk.core.catalog.domain.GetProductsUseCase
 import com.dk.core.catalog.domain.model.Product
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
 class CatalogViewModel(
@@ -16,7 +17,7 @@ class CatalogViewModel(
     val liveData: LiveData<List<Product>> get() = _liveData
 
     fun getProducts() {
-        viewModelScope.launch {
+        viewModelScope.launch(Dispatchers.IO) {
             getProductsUseCase.invoke().collect() { list ->
                 _liveData.postValue(list)
             }

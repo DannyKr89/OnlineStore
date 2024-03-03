@@ -3,7 +3,10 @@ package com.dk.onlinestore
 import android.app.Application
 import com.dk.onlinestore.di.appModule
 import com.dk.onlinestore.di.catalogModule
+import com.dk.onlinestore.di.favoriteModule
 import com.dk.onlinestore.di.loginModule
+import com.dk.onlinestore.di.productModule
+import com.dk.onlinestore.di.profileModule
 import com.dk.onlinestore.di.retrofitModule
 import org.koin.android.ext.koin.androidContext
 import org.koin.android.ext.koin.androidLogger
@@ -16,7 +19,10 @@ class App : Application() {
         startKoin {
             androidContext(this@App)
             androidLogger(Level.ERROR)
-            modules(appModule, loginModule, catalogModule, retrofitModule)
+            modules(
+                appModule, loginModule, catalogModule, retrofitModule, productModule,
+                profileModule, favoriteModule
+            )
         }
     }
 

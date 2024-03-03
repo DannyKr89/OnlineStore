@@ -1,13 +1,267 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:paddingHorizontal="16dp"
+    android:paddingVertical="24dp"
     tools:context=".ProfileFragment">
 
-    <TextView
+    <Button
+        android:id="@+id/btn_profile"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:layout_height="wrap_content"
+        android:backgroundTint="@color/background_gray"
+        android:paddingVertical="16dp"
+        app:cornerRadius="8dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
-</FrameLayout>
+    <ImageView
+        android:id="@+id/iv_profile"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:src="@drawable/ic_account"
+        app:layout_constraintBottom_toBottomOf="@id/btn_profile"
+        app:layout_constraintStart_toStartOf="@id/btn_profile"
+        app:layout_constraintTop_toTopOf="@id/btn_profile"
+        app:tint="@color/text_dark_grey" />
+
+    <ImageView
+        android:id="@+id/iv_logout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:src="@drawable/ic_logout"
+        app:layout_constraintBottom_toBottomOf="@id/btn_profile"
+        app:layout_constraintEnd_toEndOf="@id/btn_profile"
+        app:layout_constraintTop_toTopOf="@id/btn_profile"
+        app:tint="@color/text_dark_grey" />
+
+    <TextView
+        android:id="@+id/tv_profile_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:textAppearance="@style/Title_2"
+        android:textColor="@color/black"
+        app:layout_constraintBottom_toTopOf="@id/tv_profile_phone"
+        app:layout_constraintStart_toEndOf="@id/iv_profile"
+        app:layout_constraintTop_toTopOf="@id/btn_profile" />
+
+    <TextView
+        android:id="@+id/tv_profile_phone"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="@style/caption_1"
+        android:textColor="@color/text_grey"
+        app:layout_constraintBottom_toBottomOf="@id/btn_profile"
+        app:layout_constraintStart_toStartOf="@id/tv_profile_name"
+        app:layout_constraintTop_toBottomOf="@id/tv_profile_name" />
+
+    <Button
+        android:id="@+id/btn_favorite"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:backgroundTint="@color/background_gray"
+        android:drawableEnd="@drawable/ic_arrow"
+        android:paddingVertical="16dp"
+        app:cornerRadius="8dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/btn_profile" />
+
+    <ImageView
+        android:id="@+id/iv_favorite"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:src="@drawable/ic_not_favorite"
+        app:layout_constraintBottom_toBottomOf="@id/btn_favorite"
+        app:layout_constraintStart_toStartOf="@id/btn_favorite"
+        app:layout_constraintTop_toTopOf="@id/btn_favorite" />
+
+    <TextView
+        android:id="@+id/tv_favorite"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:text="@string/favorite"
+        android:textAppearance="@style/Title_2"
+        android:textColor="@color/black"
+        app:layout_constraintBottom_toTopOf="@id/tv_favorite_count"
+        app:layout_constraintStart_toEndOf="@id/iv_favorite"
+        app:layout_constraintTop_toTopOf="@id/btn_favorite" />
+
+    <TextView
+        android:id="@+id/tv_favorite_count"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="@style/caption_1"
+        android:textColor="@color/text_grey"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="@id/btn_favorite"
+        app:layout_constraintStart_toStartOf="@id/tv_favorite"
+        app:layout_constraintTop_toBottomOf="@id/tv_favorite" />
+
+    <Button
+        android:id="@+id/btn_shops"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:backgroundTint="@color/background_gray"
+        android:drawableEnd="@drawable/ic_arrow"
+        android:paddingVertical="16dp"
+        app:cornerRadius="8dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/btn_favorite" />
+
+    <ImageView
+        android:id="@+id/iv_shops"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:src="@drawable/ic_shops"
+        app:layout_constraintBottom_toBottomOf="@id/btn_shops"
+        app:layout_constraintStart_toStartOf="@id/btn_shops"
+        app:layout_constraintTop_toTopOf="@id/btn_shops"
+        app:tint="@color/text_dark_grey" />
+
+    <TextView
+        android:id="@+id/tv_shops"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:text="@string/shops"
+        android:textAppearance="@style/Title_2"
+        android:textColor="@color/black"
+        app:layout_constraintBottom_toBottomOf="@id/btn_shops"
+        app:layout_constraintStart_toEndOf="@id/iv_shops"
+        app:layout_constraintTop_toTopOf="@id/btn_shops" />
+
+    <Button
+        android:id="@+id/btn_feedback"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:backgroundTint="@color/background_gray"
+        android:drawableEnd="@drawable/ic_arrow"
+        android:paddingVertical="16dp"
+        app:cornerRadius="8dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/btn_shops" />
+
+    <ImageView
+        android:id="@+id/iv_feedback"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:src="@drawable/ic_feedback"
+        app:layout_constraintBottom_toBottomOf="@id/btn_feedback"
+        app:layout_constraintStart_toStartOf="@id/btn_feedback"
+        app:layout_constraintTop_toTopOf="@id/btn_feedback" />
+
+    <TextView
+        android:id="@+id/tv_feedback"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:text="@string/feedback"
+        android:textAppearance="@style/Title_2"
+        android:textColor="@color/black"
+        app:layout_constraintBottom_toBottomOf="@id/btn_feedback"
+        app:layout_constraintStart_toEndOf="@id/iv_feedback"
+        app:layout_constraintTop_toTopOf="@id/btn_feedback" />
+
+
+    <Button
+        android:id="@+id/btn_offer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:backgroundTint="@color/background_gray"
+        android:drawableEnd="@drawable/ic_arrow"
+        android:paddingVertical="16dp"
+        app:cornerRadius="8dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/btn_feedback" />
+
+    <ImageView
+        android:id="@+id/iv_offer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:src="@drawable/ic_offer"
+        app:layout_constraintBottom_toBottomOf="@id/btn_offer"
+        app:layout_constraintStart_toStartOf="@id/btn_offer"
+        app:layout_constraintTop_toTopOf="@id/btn_offer" />
+
+    <TextView
+        android:id="@+id/tv_offer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:text="@string/offer"
+        android:textAppearance="@style/Title_2"
+        android:textColor="@color/black"
+        app:layout_constraintBottom_toBottomOf="@id/btn_offer"
+        app:layout_constraintStart_toEndOf="@id/iv_offer"
+        app:layout_constraintTop_toTopOf="@id/btn_offer" />
+
+
+    <Button
+        android:id="@+id/btn_return"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:backgroundTint="@color/background_gray"
+        android:drawableEnd="@drawable/ic_arrow"
+        android:paddingVertical="16dp"
+        app:cornerRadius="8dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/btn_offer" />
+
+    <ImageView
+        android:id="@+id/iv_return"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:src="@drawable/ic_return"
+        app:layout_constraintBottom_toBottomOf="@id/btn_return"
+        app:layout_constraintStart_toStartOf="@id/btn_return"
+        app:layout_constraintTop_toTopOf="@id/btn_return" />
+
+    <TextView
+        android:id="@+id/tv_return"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:text="@string/return_goods"
+        android:textAppearance="@style/Title_2"
+        android:textColor="@color/black"
+        app:layout_constraintBottom_toBottomOf="@id/btn_return"
+        app:layout_constraintStart_toEndOf="@id/iv_return"
+        app:layout_constraintTop_toTopOf="@id/btn_return" />
+
+    <Button
+        android:id="@+id/btn_exit"
+        style="@style/MyButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:backgroundTint="@color/background_gray"
+        android:paddingVertical="16dp"
+        android:text="@string/exit"
+        android:textColor="@color/black"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
