@@ -1,15 +1,14 @@
-package com.dk.catalog.ui.adapters
+package com.dk.core.catalog.ui
 
 import android.widget.ImageView
 import android.widget.LinearLayout
 import androidx.core.view.isVisible
 import androidx.recyclerview.widget.RecyclerView
 import androidx.viewpager2.widget.ViewPager2
-import com.dk.catalog.databinding.ItemProductBinding
 import com.dk.core.R
 import com.dk.core.catalog.domain.model.Product
-import com.dk.core.catalog.ui.ImageAdapter
 import com.dk.core.catalog.utils.getImageList
+import com.dk.core.databinding.ItemProductBinding
 
 class CatalogViewHolder(private val binding: ItemProductBinding) :
     RecyclerView.ViewHolder(binding.root) {
@@ -50,22 +49,27 @@ class CatalogViewHolder(private val binding: ItemProductBinding) :
             tvProductRating.text = product.feedback?.rating.toString()
             tvRatingCount.text =
                 StringBuilder().append("(").append(product.feedback?.count).append(")")
+            checkIsFavorite(product.isFavorite)
             ivFavorite.setOnClickListener {
-                product.isFavorite = !product.isFavorite
-                if (product.isFavorite) {
-                    ivFavorite.setImageResource(R.drawable.ic_favorite)
-                } else {
-                    ivFavorite.setImageResource(R.drawable.ic_not_favorite)
-                }
                 favoriteListener?.invoke(product)
+                product.isFavorite = !product.isFavorite
+                checkIsFavorite(product.isFavorite)
+            }
+        }
+    }
+
+    private fun checkIsFavorite(isFavorite: Boolean) {
+        with(binding) {
+            when (isFavorite) {
+                true -> ivFavorite.setImageResource(R.drawable.ic_favorite)
+                false -> ivFavorite.setImageResource(R.drawable.ic_not_favorite)
             }
         }
     }
 
     private fun setupDots(size: Int) {
         val params = LinearLayout.LayoutParams(
-            LinearLayout.LayoutParams.WRAP_CONTENT,
-            LinearLayout.LayoutParams.WRAP_CONTENT
+            LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT
         ).apply {
             setMargins(6, 0, 6, 0)
         }
@@ -74,19 +78,19 @@ class CatalogViewHolder(private val binding: ItemProductBinding) :
             llPage.removeAllViews()
             val images = Array(size) { ImageView(root.context) }
             images.forEach {
-                it.setImageResource(com.dk.core.R.drawable.non_active_dot)
+                it.setImageResource(R.drawable.non_active_dot)
                 llPage.addView(it, params)
             }
 
-            images[0].setImageResource(com.dk.core.R.drawable.active_dot)
+            images[0].setImageResource(R.drawable.active_dot)
 
             pageChangeListener = object : ViewPager2.OnPageChangeCallback() {
                 override fun onPageSelected(position: Int) {
                     images.mapIndexed { index, imageView ->
                         if (position == index) {
-                            imageView.setImageResource(com.dk.core.R.drawable.active_dot)
+                            imageView.setImageResource(R.drawable.active_dot)
                         } else {
-                            imageView.setImageResource(com.dk.core.R.drawable.non_active_dot)
+                            imageView.setImageResource(R.drawable.non_active_dot)
                         }
                     }
                 }

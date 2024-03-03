@@ -63,6 +63,21 @@ class ProductDetailFragment : Fragment(), MenuProvider {
                 adapter.submitList(images)
                 vpImages.adapter = adapter
                 setupDots(images.size)
+
+                checkIsFavorite(product.isFavorite)
+                ivFavorite.setOnClickListener {
+                    when (product.isFavorite) {
+                        true -> {
+                            mainViewModel.removeFromFavorite(product)
+                        }
+
+                        false -> {
+                            mainViewModel.addToFavorite(product)
+                        }
+                    }
+                    product.isFavorite = !product.isFavorite
+                    checkIsFavorite(product.isFavorite)
+                }
                 tvProductTitle.text = product.title
                 tvProductSubtitle.text = product.subtitle
                 setupAvailable(product)
@@ -85,6 +100,15 @@ class ProductDetailFragment : Fragment(), MenuProvider {
                 tvPriceWithDiscountInBtn.text =
                     StringBuilder(product.price.priceWithDiscount).append(product.price.unit)
                 tvOldPriceInBtn.text = StringBuilder(product.price.price).append(product.price.unit)
+            }
+        }
+    }
+
+    private fun checkIsFavorite(isFavorite: Boolean) {
+        with(binding) {
+            when (isFavorite) {
+                true -> ivFavorite.setImageResource(com.dk.core.R.drawable.ic_favorite)
+                false -> ivFavorite.setImageResource(com.dk.core.R.drawable.ic_not_favorite)
             }
         }
     }
@@ -152,10 +176,10 @@ class ProductDetailFragment : Fragment(), MenuProvider {
             TransitionManager.beginDelayedTransition(root, AutoTransition())
             if (isExpandStructure) {
                 tvProductStructure.maxLines = 6
-                btnShowHideStructure.text = resources.getString(com.dk.core.R.string.show_text)
+                btnShowHideStructure.text = resources.getString(com.dk.core.R.string.hide_text)
             } else {
                 tvProductStructure.maxLines = 2
-                btnShowHideStructure.text = resources.getString(com.dk.core.R.string.hide_text)
+                btnShowHideStructure.text = resources.getString(com.dk.core.R.string.show_text)
             }
         }
     }

@@ -61,7 +61,7 @@ class LoginFragment : Fragment() {
                 val phoneNumber = etPhoneNumber.text.toString()
                 viewModel.saveProfile(firstName, secondName, phoneNumber)
                 val request = NavDeepLinkRequest.Builder
-                    .fromUri("android-app://com.dk.home.HomeFragment".toUri())
+                    .fromUri(resources.getString(com.dk.core.R.string.to_main_fragment).toUri())
                     .build()
                 findNavController().navigate(
                     request,
