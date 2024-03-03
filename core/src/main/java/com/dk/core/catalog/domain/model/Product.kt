@@ -3,7 +3,7 @@ package com.dk.core.catalog.domain.model
 data class Product(
     val available: Int,
     val description: String,
-    val feedback: Feedback,
+    val feedback: Feedback?,
     val id: String,
     val info: List<Info>,
     val ingredients: String,

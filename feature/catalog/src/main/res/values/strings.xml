@@ -7,7 +7,7 @@
     <string name="chip_suntan">Загар</string>
     <string name="chip_mask">Маски</string>
 
-    <string-array name="sorting" >
+    <string-array name="sorting">
         <item>По популярности</item>
         <item>По уменьшению цены</item>
         <item>По возрастанию цены</item>

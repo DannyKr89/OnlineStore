@@ -8,8 +8,8 @@
     <color name="text_pink">#D62F89</color>
     <color name="text_light_pink">#FF8AC9</color>
     <color name="text_orange">#F9A249</color>
-    <color name="text_gray">#A0A1A3</color>
-    <color name="text_dark_gray">#3E3E3E</color>
+    <color name="text_grey">#A0A1A3</color>
+    <color name="text_dark_grey">#3E3E3E</color>
     <color name="dark_blue">#52606D</color>
     <color name="light_grey">#F8F8F8</color>
     <color name="element_grey">#DEDEDE</color>

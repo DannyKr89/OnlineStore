@@ -8,24 +8,29 @@ import android.widget.AdapterView
 import android.widget.AdapterView.OnItemSelectedListener
 import android.widget.ArrayAdapter
 import androidx.core.view.forEach
+import androidx.core.view.size
 import androidx.fragment.app.Fragment
 import com.dk.catalog.R
 import com.dk.catalog.databinding.FragmentCatalogBinding
-import com.dk.catalog.ui.adapters.CatalogAdapter
 import com.dk.catalog.ui.common.sort.SortList
 import com.dk.catalog.ui.common.sort.SortingType
+import com.dk.core.app.MainViewModel
 import com.dk.core.catalog.domain.model.Product
+import com.dk.core.catalog.ui.CatalogAdapter
 import com.google.android.material.chip.Chip
 import com.google.android.material.chip.ChipGroup
 import com.google.android.material.chip.ChipGroup.OnCheckedStateChangeListener
 import org.koin.android.ext.android.get
+import org.koin.androidx.viewmodel.ext.android.activityViewModel
 import org.koin.androidx.viewmodel.ext.android.viewModel
+import kotlin.collections.set
 
 class CatalogFragment : Fragment(), OnItemSelectedListener, OnCheckedStateChangeListener {
 
     private var _binding: FragmentCatalogBinding? = null
     private val binding: FragmentCatalogBinding get() = _binding!!
     private val viewModel: CatalogViewModel by viewModel()
+    private val mainViewModel: MainViewModel by activityViewModel()
     private val adapter: CatalogAdapter = get()
     private var productList = listOf<Product>()
     private var sortList = SortList(SortingType.RATING_DESC)
@@ -40,6 +45,24 @@ class CatalogFragment : Fragment(), OnItemSelectedListener, OnCheckedStateChange
         super.onViewCreated(view, savedInstanceState)
         initViewModel()
         initViews()
+        setupAdapter()
+    }
+
+    private fun setupAdapter() {
+        adapter.productListener = {
+            mainViewModel.product(it)
+        }
+        adapter.favoriteListener = {
+            when (it.isFavorite) {
+                true -> {
+                    mainViewModel.removeFromFavorite(it)
+                }
+
+                false -> {
+                    mainViewModel.addToFavorite(it)
+                }
+            }
+        }
     }
 
     private fun initViewModel() {
@@ -67,14 +90,26 @@ class CatalogFragment : Fragment(), OnItemSelectedListener, OnCheckedStateChange
         val map = hashMapOf<String, String>()
         productList.forEach { product ->
             product.tags.forEach { tag ->
-                map[tag] = tag
+                map[tag] = when (tag) {
+                    "face" -> resources.getString(R.string.chip_face)
+                    "body" -> resources.getString(R.string.chip_body)
+                    "suntan" -> resources.getString(R.string.chip_suntan)
+                    "mask" -> resources.getString(R.string.chip_mask)
+                    else -> {
+                        throw IllegalStateException()
+                    }
+                }
             }
+        }
+        if (binding.chipGroup.size > 1) {
+            binding.chipGroup.removeViews(1, binding.chipGroup.childCount - 1)
         }
         map.forEach {
             val chip = LayoutInflater.from(requireContext())
                 .inflate(R.layout.item_chip, binding.chipGroup, false) as Chip
             chip.apply {
-                text = it.key
+                text = it.value
+                transitionName = it.key
             }
             binding.chipGroup.addView(chip)
         }
@@ -93,16 +128,13 @@ class CatalogFragment : Fragment(), OnItemSelectedListener, OnCheckedStateChange
     private fun sortList(sortingType: SortingType) {
         sortList = SortList(sortingType)
         adapter.submitList(sortList.getSorted(adapter.currentList))
-        binding.rvCatalog.postDelayed({
-            binding.rvCatalog.scrollToPosition(0)
-        }, 10)
     }
 
     override fun onCheckedChanged(group: ChipGroup, checkedIds: MutableList<Int>) {
         chipCloseButtonVisibility()
         group.forEach { chip ->
             if ((chip as Chip).isChecked) {
-                val list = productList.filter { it.tags.contains(chip.text) }
+                val list = productList.filter { it.tags.contains(chip.transitionName) }
                 adapter.submitList(sortList.getSorted(list))
             }
         }

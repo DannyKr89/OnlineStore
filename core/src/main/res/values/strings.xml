@@ -6,7 +6,14 @@
     <string name="basket_fragment">Корзина</string>
     <string name="discount_fragment">Акции</string>
     <string name="account_fragment">Профиль</string>
+    <string name="personal_account">Личный кабинет</string>
 
-    <string name="deeplink_catalog_fragment">android-app://com.dk.catalog.ui.CatalogFragment</string>
+    <string name="share">Поделиться</string>
+    <string name="description">Описание</string>
+    <string name="hide_text">Скрыть</string>
+    <string name="show_text">Подробнее</string>
+
+    <string name="to_main_fragment">"android-app://com.dk.home.HomeFragment"</string>
+    <string name="to_favorite_fragment">"android-app://com.dk.favorite.ui.FavoriteFragment"</string>
 
 </resources>

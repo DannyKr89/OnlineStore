@@ -2,10 +2,8 @@ package com.dk.onlinestore.ui
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.net.toUri
 import androidx.core.view.isVisible
 import androidx.navigation.NavController
-import androidx.navigation.NavDeepLinkRequest
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.ui.AppBarConfiguration
@@ -29,15 +27,24 @@ class MainActivity : AppCompatActivity() {
         initViewModel()
         setupToolbar()
         setupNavigation()
+        checkProfile()
     }
 
-    private fun initViewModel() {
+    private fun checkProfile() {
         viewModel.login()
         viewModel.loginLiveData.observe(this) {
             if (it != null) {
                 navController.navigate(R.id.catalog_fragment)
             } else {
-                navController.navigate(R.id.login_fragment)
+                navController.popBackStack(R.id.login_fragment, true)
+            }
+        }
+    }
+
+    private fun initViewModel() {
+        viewModel.productLiveData.observe(this) {
+            if (it != null) {
+                navController.navigate(R.id.action_catalog_fragment_to_product_detail_fragment)
             }
         }
     }
@@ -63,6 +70,7 @@ class MainActivity : AppCompatActivity() {
         navController.addOnDestinationChangedListener { _, destination, _ ->
             with(binding) {
                 navView.isVisible = destination.id != R.id.login_fragment
+                binding.toolbar.isTitleCentered = destination.id != R.id.favorite_fragment
             }
             supportActionBar?.title = destination.label
         }
@@ -70,6 +78,10 @@ class MainActivity : AppCompatActivity() {
 
     private fun setupToolbar() {
         setSupportActionBar(binding.toolbar)
-        binding.toolbar.isTitleCentered = true
+    }
+
+    override fun onSupportNavigateUp(): Boolean {
+        viewModel.product(null)
+        return navController.navigateUp() || super.onSupportNavigateUp()
     }
 }
