@@ -21,7 +21,7 @@
         android:name="com.dk.home.HomeFragment"
         android:label="@string/main_fragment">
 
-        <deepLink app:uri="android-app://com.dk.home.HomeFragment" />
+        <deepLink app:uri="@string/to_main_fragment" />
     </fragment>
     <fragment
         android:id="@+id/discount_fragment"
@@ -30,7 +30,7 @@
     <fragment
         android:id="@+id/account_fragment"
         android:name="com.dk.profile.ProfileFragment"
-        android:label="@string/account_fragment" />
+        android:label="@string/personal_account" />
     <fragment
         android:id="@+id/basket_fragment"
         android:name="com.dk.basket.BasketFragment"
@@ -39,4 +39,11 @@
         android:id="@+id/product_detail_fragment"
         android:name="com.dk.detail.ui.ProductDetailFragment"
         android:label="" />
+    <fragment
+        android:id="@+id/favorite_fragment"
+        android:name="com.dk.favorite.ui.FavoriteFragment"
+        android:label="@string/favorite_fragment">
+
+        <deepLink app:uri="@string/to_favorite_fragment" />
+    </fragment>
 </navigation>

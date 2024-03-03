@@ -1,3 +1,9 @@
 <resources>
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="exit">Выход</string>
+    <string name="favorite">Избранное</string>
+    <string name="shops">Магазины</string>
+    <string name="feedback">Обратная связь</string>
+    <string name="offer">Оферта</string>
+    <string name="return_goods">Возврат товара</string>
 </resources>

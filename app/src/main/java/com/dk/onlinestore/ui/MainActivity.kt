@@ -1,6 +1,5 @@
 package com.dk.onlinestore.ui
 
-import android.content.SharedPreferences
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.isVisible
@@ -11,10 +10,8 @@ import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.NavigationUI
 import androidx.navigation.ui.setupWithNavController
 import com.dk.core.app.MainViewModel
-import com.dk.core.app.utils.PROFILE_FIRST_NAME
 import com.dk.onlinestore.R
 import com.dk.onlinestore.databinding.ActivityMainBinding
-import org.koin.android.ext.android.get
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class MainActivity : AppCompatActivity() {
@@ -22,7 +19,6 @@ class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
     private lateinit var navController: NavController
     private val viewModel: MainViewModel by viewModel()
-    private val sharedPreferences: SharedPreferences = get()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
@@ -35,9 +31,13 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun checkProfile() {
-        val profile = sharedPreferences.getString(PROFILE_FIRST_NAME, null)
-        if (profile != null) {
-            navController.navigate(R.id.catalog_fragment)
+        viewModel.login()
+        viewModel.loginLiveData.observe(this) {
+            if (it != null) {
+                navController.navigate(R.id.catalog_fragment)
+            } else {
+                navController.popBackStack(R.id.login_fragment, true)
+            }
         }
     }
 
@@ -70,6 +70,7 @@ class MainActivity : AppCompatActivity() {
         navController.addOnDestinationChangedListener { _, destination, _ ->
             with(binding) {
                 navView.isVisible = destination.id != R.id.login_fragment
+                binding.toolbar.isTitleCentered = destination.id != R.id.favorite_fragment
             }
             supportActionBar?.title = destination.label
         }
@@ -77,7 +78,6 @@ class MainActivity : AppCompatActivity() {
 
     private fun setupToolbar() {
         setSupportActionBar(binding.toolbar)
-        binding.toolbar.isTitleCentered = true
     }
 
     override fun onSupportNavigateUp(): Boolean {
