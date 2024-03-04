@@ -1,13 +1,14 @@
-package com.dk.favorite.ui
+package com.dk.favorite.ui.fragments
 
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import com.dk.core.app.MainViewModel
-import com.dk.core.catalog.ui.CatalogAdapter
+import com.dk.core.app.ui.MainViewModel
+import com.dk.core.catalog.ui.adapters.CatalogAdapter
 import com.dk.favorite.databinding.FragmentProductsBinding
+import com.dk.favorite.ui.FavoriteViewModel
 import org.koin.android.ext.android.get
 import org.koin.androidx.viewmodel.ext.android.activityViewModel
 import org.koin.androidx.viewmodel.ext.android.viewModel

@@ -1,11 +1,5 @@
 <resources>
-    <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="filters">Фильтры</string>
-    <string name="chip_view_all">Смотреть все</string>
-    <string name="chip_face">Лицо</string>
-    <string name="chip_body">Тело</string>
-    <string name="chip_suntan">Загар</string>
-    <string name="chip_mask">Маски</string>
 
     <string-array name="sorting">
         <item>По популярности</item>

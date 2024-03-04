@@ -17,9 +17,9 @@ import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.viewpager2.widget.ViewPager2
-import com.dk.core.app.MainViewModel
+import com.dk.core.app.ui.MainViewModel
 import com.dk.core.catalog.domain.model.Product
-import com.dk.core.catalog.ui.ImageAdapter
+import com.dk.core.catalog.ui.adapters.ImageAdapter
 import com.dk.core.catalog.utils.getImageList
 import com.dk.core.databinding.ItemSpecsBinding
 import com.dk.detail.R
@@ -148,9 +148,9 @@ class ProductDetailFragment : Fragment(), MenuProvider {
             val count = product.feedback?.count ?: 0
             tvRatingCount.text = StringBuilder(count.toString()).append(
                 when {
-                    count % 10 == 1 && count % 100 != 11 -> " отзыв"
-                    count % 10 in 2..4 && count % 100 !in 12..14 -> " отзыва"
-                    else -> " отзывов"
+                    count % 10 == 1 && count % 100 != 11 -> resources.getString(com.dk.core.R.string.feedback)
+                    count % 10 in 2..4 && count % 100 !in 12..14 -> resources.getString(com.dk.core.R.string.feedbacks)
+                    else -> resources.getString(com.dk.core.R.string.many_feedbacks)
                 }
             )
         }
@@ -160,13 +160,20 @@ class ProductDetailFragment : Fragment(), MenuProvider {
         with(binding) {
             tvAvailable.text = product.available.toString()
             tvAvailable.text =
-                StringBuilder().append("Доступно для заказа ").append(product.available).append(
-                    when {
-                        product.available % 10 == 1 && product.available % 100 != 11 -> " штука"
-                        product.available % 10 in 2..4 && product.available % 100 !in 12..14 -> " штуки"
-                        else -> " штук"
-                    }
-                )
+                StringBuilder().append(com.dk.core.R.string.available).append(product.available)
+                    .append(
+                        when {
+                            product.available % 10 == 1 && product.available % 100 != 11 -> resources.getString(
+                                com.dk.core.R.string.piece
+                            )
+
+                            product.available % 10 in 2..4 && product.available % 100 !in 12..14 -> resources.getString(
+                                com.dk.core.R.string.pieces
+                            )
+
+                            else -> com.dk.core.R.string.many_pieces
+                        }
+                    )
         }
     }
 

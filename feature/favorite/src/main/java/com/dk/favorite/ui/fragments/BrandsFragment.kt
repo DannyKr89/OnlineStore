@@ -1,4 +1,4 @@
-package com.dk.favorite.ui
+package com.dk.favorite.ui.fragments
 
 import android.os.Bundle
 import android.view.LayoutInflater

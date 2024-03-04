@@ -10,7 +10,7 @@ import androidx.fragment.app.Fragment
 import androidx.navigation.NavDeepLinkRequest
 import androidx.navigation.NavOptions
 import androidx.navigation.fragment.findNavController
-import com.dk.core.app.MainViewModel
+import com.dk.core.app.ui.MainViewModel
 import com.dk.login.databinding.FragmentLoginBinding
 import com.dk.login.utils.PhoneValidator
 import com.dk.login.utils.Validator

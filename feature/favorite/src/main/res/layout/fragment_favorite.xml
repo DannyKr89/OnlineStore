@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:paddingHorizontal="16dp"
-    tools:context=".ui.FavoriteFragment">
+    tools:context=".ui.fragments.FavoriteFragment">
 
     <com.google.android.material.tabs.TabLayout
         android:id="@+id/tl_favorite"

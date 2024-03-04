@@ -12,7 +12,7 @@ class PhoneValidator(private val editText: EditText) : TextWatcher {
     override fun beforeTextChanged(
         s: CharSequence?, start: Int, count: Int, after: Int
     ) {
-        editText.hint = "+7 XXX XXX XX XX"
+        editText.hint = PHONE_MASK
 
     }
 
@@ -43,5 +43,9 @@ class PhoneValidator(private val editText: EditText) : TextWatcher {
 
     override fun afterTextChanged(s: Editable?) {
         editText.hint = editText.context.resources.getString(R.string.phone_number)
+    }
+
+    companion object {
+        private const val PHONE_MASK = "+7 XXX XXX XX XX"
     }
 }

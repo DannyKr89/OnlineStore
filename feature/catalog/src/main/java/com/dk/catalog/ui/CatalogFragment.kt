@@ -10,13 +10,16 @@ import android.widget.ArrayAdapter
 import androidx.core.view.forEach
 import androidx.core.view.size
 import androidx.fragment.app.Fragment
+import androidx.navigation.NavDirections
+import androidx.navigation.fragment.FragmentNavigatorDestinationBuilder
+import androidx.navigation.fragment.findNavController
 import com.dk.catalog.R
 import com.dk.catalog.databinding.FragmentCatalogBinding
 import com.dk.catalog.ui.common.sort.SortList
 import com.dk.catalog.ui.common.sort.SortingType
-import com.dk.core.app.MainViewModel
+import com.dk.core.app.ui.MainViewModel
 import com.dk.core.catalog.domain.model.Product
-import com.dk.core.catalog.ui.CatalogAdapter
+import com.dk.core.catalog.ui.adapters.CatalogAdapter
 import com.google.android.material.chip.Chip
 import com.google.android.material.chip.ChipGroup
 import com.google.android.material.chip.ChipGroup.OnCheckedStateChangeListener
@@ -91,10 +94,10 @@ class CatalogFragment : Fragment(), OnItemSelectedListener, OnCheckedStateChange
         productList.forEach { product ->
             product.tags.forEach { tag ->
                 map[tag] = when (tag) {
-                    "face" -> resources.getString(R.string.chip_face)
-                    "body" -> resources.getString(R.string.chip_body)
-                    "suntan" -> resources.getString(R.string.chip_suntan)
-                    "mask" -> resources.getString(R.string.chip_mask)
+                    getString(com.dk.core.R.string.face) -> resources.getString(com.dk.core.R.string.chip_face)
+                    getString(com.dk.core.R.string.body) -> resources.getString(com.dk.core.R.string.chip_body)
+                    getString(com.dk.core.R.string.suntan) -> resources.getString(com.dk.core.R.string.chip_suntan)
+                    getString(com.dk.core.R.string.mask) -> resources.getString(com.dk.core.R.string.chip_mask)
                     else -> {
                         throw IllegalStateException()
                     }

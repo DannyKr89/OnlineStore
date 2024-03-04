@@ -1,4 +1,4 @@
-package com.dk.core.catalog.ui
+package com.dk.core.catalog.ui.adapters
 
 import android.view.LayoutInflater
 import android.view.ViewGroup

@@ -1,4 +1,4 @@
-package com.dk.core.favorite.domain
+package com.dk.core.favorite.domain.repository
 
 import com.dk.core.catalog.domain.model.Product
 import kotlinx.coroutines.flow.Flow

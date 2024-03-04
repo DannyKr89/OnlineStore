@@ -1,4 +1,4 @@
-package com.dk.favorite.ui
+package com.dk.favorite.ui.fragments
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -35,8 +35,7 @@ class FavoriteFragment : Fragment() {
             TabLayoutMediator(tlFavorite, vpFavorite) { tab, position ->
                 tab.text = when (position) {
                     0 -> getString(R.string.products)
-                    1 -> getString(R.string.brands)
-                    else -> null
+                    else -> getString(R.string.brands)
                 }
             }.attach()
         }

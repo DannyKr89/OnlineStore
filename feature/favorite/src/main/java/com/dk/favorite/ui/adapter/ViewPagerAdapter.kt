@@ -2,8 +2,8 @@ package com.dk.favorite.ui.adapter
 
 import androidx.fragment.app.Fragment
 import androidx.viewpager2.adapter.FragmentStateAdapter
-import com.dk.favorite.ui.BrandsFragment
-import com.dk.favorite.ui.ProductsFragment
+import com.dk.favorite.ui.fragments.BrandsFragment
+import com.dk.favorite.ui.fragments.ProductsFragment
 
 class ViewPagerAdapter(fragment: Fragment) : FragmentStateAdapter(fragment) {
 

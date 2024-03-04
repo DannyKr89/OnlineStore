@@ -5,7 +5,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.dk.core.catalog.domain.model.Product
-import com.dk.core.favorite.domain.GetFavoriteProductsUseCase
+import com.dk.core.favorite.domain.usecases.GetFavoriteProductsUseCase
 import com.dk.core.login.domain.model.Profile
 import com.dk.core.login.domain.usecase.LoginUseCase
 import com.dk.core.login.domain.usecase.LogoutUseCase

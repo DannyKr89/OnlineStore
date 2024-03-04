@@ -41,7 +41,7 @@
         android:label="" />
     <fragment
         android:id="@+id/favorite_fragment"
-        android:name="com.dk.favorite.ui.FavoriteFragment"
+        android:name="com.dk.favorite.ui.fragments.FavoriteFragment"
         android:label="@string/favorite_fragment">
 
         <deepLink app:uri="@string/to_favorite_fragment" />

@@ -1,12 +1,12 @@
-package com.dk.core.app
+package com.dk.core.app.ui
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.dk.core.catalog.domain.model.Product
-import com.dk.core.favorite.domain.AddToFavoriteUseCase
-import com.dk.core.favorite.domain.RemoveFromFavoriteUseCase
+import com.dk.core.favorite.domain.usecases.AddToFavoriteUseCase
+import com.dk.core.favorite.domain.usecases.RemoveFromFavoriteUseCase
 import com.dk.core.login.domain.model.Profile
 import com.dk.core.login.domain.usecase.LoginUseCase
 import kotlinx.coroutines.Dispatchers

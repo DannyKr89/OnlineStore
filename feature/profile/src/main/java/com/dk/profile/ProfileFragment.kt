@@ -9,7 +9,7 @@ import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.navigation.NavDeepLinkRequest
 import androidx.navigation.fragment.findNavController
-import com.dk.core.app.MainViewModel
+import com.dk.core.app.ui.MainViewModel
 import com.dk.profile.databinding.FragmentProfileBinding
 import org.koin.androidx.viewmodel.ext.android.activityViewModel
 import org.koin.androidx.viewmodel.ext.android.viewModel
@@ -43,9 +43,9 @@ class ProfileFragment : Fragment() {
             val size = it.size
             binding.tvFavoriteCount.text = StringBuilder(it.size.toString()).append(
                 when {
-                    size % 10 == 1 && size % 100 != 11 -> " товар"
-                    size % 10 in 2..4 && size % 100 !in 12..14 -> " товара"
-                    else -> " товаров"
+                    size % 10 == 1 && size % 100 != 11 -> getString(com.dk.core.R.string.product)
+                    size % 10 in 2..4 && size % 100 !in 12..14 -> getString(com.dk.core.R.string.products)
+                    else -> getString(com.dk.core.R.string.many_products)
                 }
             )
         }

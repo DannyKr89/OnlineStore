@@ -3,7 +3,7 @@ package com.dk.favorite.data
 import android.content.SharedPreferences
 import com.dk.core.app.utils.FAVORITE_LIST
 import com.dk.core.catalog.domain.model.Product
-import com.dk.core.favorite.domain.FavoriteRepository
+import com.dk.core.favorite.domain.repository.FavoriteRepository
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
 import kotlinx.coroutines.flow.flow

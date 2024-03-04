@@ -9,7 +9,7 @@ import androidx.navigation.fragment.findNavController
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.NavigationUI
 import androidx.navigation.ui.setupWithNavController
-import com.dk.core.app.MainViewModel
+import com.dk.core.app.ui.MainViewModel
 import com.dk.onlinestore.R
 import com.dk.onlinestore.databinding.ActivityMainBinding
 import org.koin.androidx.viewmodel.ext.android.viewModel
