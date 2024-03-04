@@ -1,0 +1,9 @@
+<resources>
+    <string name="filters">Фильтры</string>
+
+    <string-array name="sorting">
+        <item>По популярности</item>
+        <item>По уменьшению цены</item>
+        <item>По возрастанию цены</item>
+    </string-array>
+</resources>

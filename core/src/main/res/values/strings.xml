@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="login_fragment">Вход</string>
+    <string name="main_fragment">Главная</string>
+    <string name="catalog_fragment">Каталог</string>
+    <string name="basket_fragment">Корзина</string>
+    <string name="discount_fragment">Акции</string>
+    <string name="account_fragment">Профиль</string>
+    <string name="personal_account">Личный кабинет</string>
+    <string name="favorite_fragment">Избранное</string>
+
+    <string name="share">Поделиться</string>
+    <string name="description">Описание</string>
+    <string name="hide_text">Скрыть</string>
+    <string name="show_text">Подробнее</string>
+
+    <string name="feedback"> отзыв</string>
+    <string name="feedbacks"> отзыва</string>
+    <string name="many_feedbacks"> отзывов</string>
+
+    <string name="available">"Доступно для заказа "</string>
+    <string name="piece"> штука</string>
+    <string name="pieces"> штуки</string>
+    <string name="many_pieces"> штук</string>
+
+    <string name="face">face</string>
+    <string name="body">body</string>
+    <string name="suntan">suntan</string>
+    <string name="mask">mask</string>
+
+    <string name="chip_view_all">Смотреть все</string>
+    <string name="chip_face">Лицо</string>
+    <string name="chip_body">Тело</string>
+    <string name="chip_suntan">Загар</string>
+    <string name="chip_mask">Маски</string>
+
+    <string name="product">" товар"</string>
+    <string name="products">" товара"</string>
+    <string name="many_products">" товаров"</string>
+
+    <string name="to_main_fragment">"android-app://com.dk.home.HomeFragment"</string>
+    <string name="to_favorite_fragment">"android-app://com.dk.favorite.ui.fragments.FavoriteFragment"</string>
+
+</resources>

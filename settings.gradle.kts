@@ -15,4 +15,13 @@ dependencyResolutionManagement {
 
 rootProject.name = "Online Store"
 include(":app")
- 
+include(":feature:login")
+include(":core")
+include(":feature:catalog")
+include(":feature:home")
+include(":feature:discount")
+include(":feature:profile")
+include(":feature:basket")
+include(":api")
+include(":feature:detail")
+include(":feature:favorite")

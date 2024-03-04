@@ -1,0 +1,7 @@
+<resources>
+    <string name="license">Нажимая кнопку “Войти”, Вы принимаете \n <u>условия программы лояльности</u></string>
+    <string name="first_name">Имя</string>
+    <string name="second_name">Фамилия</string>
+    <string name="phone_number">Номер телефона</string>
+    <string name="enter">Войти</string>
+</resources>
