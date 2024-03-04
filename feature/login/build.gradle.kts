@@ -38,13 +38,22 @@ android {
 dependencies {
 
     implementation(project(":core"))
-    //Koin
-    implementation("io.insert-koin:koin-android:3.5.3")
 
-    implementation("androidx.core:core-ktx:1.12.0")
-    implementation("androidx.appcompat:appcompat:1.6.1")
-    implementation("com.google.android.material:material:1.11.0")
-    implementation("androidx.navigation:navigation-runtime-ktx:2.7.7")
-    implementation("androidx.navigation:navigation-ui-ktx:2.7.7")
-    implementation("androidx.navigation:navigation-fragment-ktx:2.7.7")
+    //Koin
+    implementation(Koin.koin)
+
+    //Kotlin
+    implementation(Kotlin.core)
+
+    //AndroidX
+    implementation(AndroidX.appcompat)
+
+    //Design
+    implementation(Design.material)
+    implementation(Design.constraint_layout)
+
+    //Navigation
+    implementation(Navigation.runtime_ktx)
+    implementation(Navigation.ui_ktx)
+    implementation(Navigation.fragment_ktx)
 }
